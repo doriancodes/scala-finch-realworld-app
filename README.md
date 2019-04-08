@@ -1,4 +1,4 @@
-# ![RealWorld Example App using Scala and Finch](finch-logo-1.png)
+# ![RealWorld Example App using Scala and Finch](logo.png)
 
 > ### Scala & Finch codebase containing real world examples (CRUD, auth, advanced patterns, etc) that adheres to the [RealWorld](https://github.com/gothinkster/realworld) spec and API.
 
