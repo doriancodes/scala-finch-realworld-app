@@ -22,6 +22,7 @@ libraryDependencies ++= Seq(
   "org.tpolecat" %% "doobie-postgres" % doobieVersion,
   "org.tpolecat" %% "doobie-specs2" % doobieVersion,
   "org.tpolecat" %% "doobie-scalatest" % doobieVersion,
+  "com.pauldijou" %% "jwt-circe" % "2.1.0"
 )
 
 addCompilerPlugin(
