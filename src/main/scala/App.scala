@@ -21,16 +21,18 @@ class App(implicit S: ContextShift[IO]) extends Endpoint.Module[IO] {
     getMessage().map(Ok)
   }
 
-  val register: Endpoint[IO, User] = post("register" :: jsonBody[InputUser]) {
-    inputUser: InputUser =>
-      authenticationService.register(inputUser)
+  val register: Endpoint[IO, User] = post("api" :: "users" :: jsonBody[InputUser]) {
+    user: InputUser =>
+      authenticationService.register(user).map(Ok)
   }
 
-  val api = (helloWorld :+: register)
+  val api = (helloWorld :+: register).handle {
+    case e: Exception => BadRequest(e)
+  }
 
   final def toService: Service[Request, Response] =
     Bootstrap
-      .serve[Application.Json](helloWorld)
+      .serve[Application.Json](api)
       .toService
 
 }

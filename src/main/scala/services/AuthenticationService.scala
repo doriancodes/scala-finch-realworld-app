@@ -8,13 +8,14 @@ import models.{InputUser, User}
 class AuthenticationService extends JWTUtils with UserDao {
 
   def register(inputUser: InputUser): IO[User] = {
-      insertUpdateUser(
-        inputUser.email,
-        generateToken,
-        inputUser.username,
-        None,
-        None
-      )
+
+    insertUpdateUser(
+      inputUser.user.email,
+      generateToken,
+      inputUser.user.username,
+      None,
+      None
+    )
 
   }
 

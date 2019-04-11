@@ -11,9 +11,11 @@ trait DbConnection {
 
   val xa = Transactor.fromDriverManager[IO](
     "org.postgresql.Driver", // driver classname
-    "jdbc:postgresql:world", // connect URL (driver-specific)
+    "jdbc:postgresql:conduit", // connect URL (driver-specific)
     "postgres", // user
     "password" // password
   )
+
+  val y = xa.yolo
 
 }

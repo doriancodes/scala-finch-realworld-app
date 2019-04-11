@@ -9,10 +9,10 @@ import scala.util.Random
 trait JWTUtils {
 
   val claim = JwtClaim(
-    expiration = Some(Instant.now.plusSeconds(157784760).getEpochSecond),
+    expiration = Some(Instant.now.plusSeconds(3600).getEpochSecond), //one hour
     issuedAt = Some(Instant.now.getEpochSecond))
 
-  val key = Random.alphanumeric.take(16).mkString("")
+  lazy val key = Random.alphanumeric.take(16).mkString("")
 
   val algo = JwtAlgorithm.HS256
 
