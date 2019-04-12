@@ -16,6 +16,7 @@ object OffsetDateTimeModule {
   }
 
   implicit val natGet: Get[OffsetDateTime] = Get[Timestamp].map(fromTimestamp)
-  implicit val natPut: Put[OffsetDateTime] = Put[Timestamp].contramap(toTimestamp)
+  implicit val natPut: Put[OffsetDateTime] =
+    Put[Timestamp].contramap(toTimestamp)
 
 }

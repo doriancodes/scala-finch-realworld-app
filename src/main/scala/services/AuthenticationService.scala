@@ -18,14 +18,15 @@ class AuthenticationService extends JWTUtils with UserDao {
       None,
       OffsetDateTime.now(),
       OffsetDateTime.now()
-    ).map( newUser => User(
-      newUser.email,
-      generateToken,
-      newUser.username,
-      newUser.bio,
-      newUser.image
-    ))
-
+    ).map(
+      newUser =>
+        User(
+          newUser.email,
+          generateToken,
+          newUser.username,
+          newUser.bio,
+          newUser.image
+      ))
 
   }
 

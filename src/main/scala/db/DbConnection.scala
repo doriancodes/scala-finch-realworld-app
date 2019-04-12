@@ -7,8 +7,6 @@ import scala.concurrent.ExecutionContext
 
 trait DbConnection {
 
-
-
   implicit val cs = IO.contextShift(ExecutionContext.global)
 
   val xa = Transactor.fromDriverManager[IO](

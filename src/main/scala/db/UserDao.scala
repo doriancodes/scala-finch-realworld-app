@@ -11,7 +11,6 @@ import cats.implicits._
 import models.{DbUser, User}
 import java.time.OffsetDateTime
 
-
 trait UserDao extends DbConnection {
 
   import y._
@@ -22,9 +21,7 @@ trait UserDao extends DbConnection {
                        bio: Option[String],
                        image: Option[String],
                        createdAt: OffsetDateTime,
-                       updatedAt: OffsetDateTime
-
-                      ): IO[DbUser] =
+                       updatedAt: OffsetDateTime): IO[DbUser] =
     sql"insert into users (email, username, bio, image, created_at, updated_at) values ($email, $username, $bio, $image, $createdAt, $updatedAt)".update.run
       .transact(xa)
       .map { _ =>

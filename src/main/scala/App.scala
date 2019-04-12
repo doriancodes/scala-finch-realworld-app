@@ -21,10 +21,10 @@ class App(implicit S: ContextShift[IO]) extends Endpoint.Module[IO] {
     getMessage().map(Ok)
   }
 
-  val register: Endpoint[IO, User] = post("api" :: "users" :: jsonBody[InputUser]) {
-    user: InputUser =>
+  val register: Endpoint[IO, User] =
+    post("api" :: "users" :: jsonBody[InputUser]) { user: InputUser =>
       authenticationService.register(user).map(Ok)
-  }
+    }
 
   val api = (helloWorld :+: register).handle {
     case e: Exception => BadRequest(e)
