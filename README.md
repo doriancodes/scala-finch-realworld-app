@@ -18,7 +18,7 @@ Then:
  * sbt test -- to run tests,
  * sbt run -- to run server in dev mode.
 
-======
+## TODO
 
-Feel free to comment and improve current implementation!
-
+- Add tests
+- Add travis CI

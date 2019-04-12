@@ -23,7 +23,8 @@ libraryDependencies ++= Seq(
   "org.tpolecat" %% "doobie-specs2" % doobieVersion,
   "org.tpolecat" %% "doobie-scalatest" % doobieVersion,
   "com.pauldijou" %% "jwt-circe" % "2.1.0",
-  "org.slf4j" % "slf4j-simple" % "1.7.12"
+  "org.slf4j" % "slf4j-simple" % "1.7.12",
+  "org.mindrot" % "jbcrypt" % "0.3m"
 )
 
 addCompilerPlugin(
