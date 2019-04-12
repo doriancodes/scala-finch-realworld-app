@@ -8,6 +8,8 @@ import scala.util.Random
 
 trait JWTUtils {
 
+  val a = java.time.OffsetDateTime.now()
+
   val claim = JwtClaim(
     expiration = Some(Instant.now.plusSeconds(3600).getEpochSecond), //one hour
     issuedAt = Some(Instant.now.getEpochSecond))

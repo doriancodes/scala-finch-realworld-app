@@ -1,5 +1,7 @@
 package services
 
+import java.time.OffsetDateTime
+
 import authentication.JWTUtils
 import cats.effect.IO
 import db.UserDao
@@ -11,11 +13,19 @@ class AuthenticationService extends JWTUtils with UserDao {
 
     insertUpdateUser(
       inputUser.user.email,
-      generateToken,
       inputUser.user.username,
       None,
-      None
-    )
+      None,
+      OffsetDateTime.now(),
+      OffsetDateTime.now()
+    ).map( newUser => User(
+      newUser.email,
+      generateToken,
+      newUser.username,
+      newUser.bio,
+      newUser.image
+    ))
+
 
   }
 
